@@ -1,0 +1,58 @@
+# Load the warpbreaks dataset (it’s built-in in R)
+input <- warpbreaks
+
+# Print the first few rows of the dataset to see its structure
+print(head(input))
+
+# Create a Generalized Linear Model (GLM) with Poisson distribution
+# Model the relationship between 'breaks' and predictors 'wool' and 'tension'
+output <- glm(formula = breaks ~ wool + tension, data = warpbreaks, family = poisson)
+
+# Display the summary of the model
+print(summary(output))
+
+# Additional model diagnostics (optional)
+# Plotting residuals to check model fit
+plot(output)
+
+-----------------------------
+op 
+
+Call:
+glm(formula = breaks ~ wool + tension, data = warpbreaks, family = poisson)
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)   3.2213     0.3143  10.24   < 2e-16 ***
+woolB         0.0917     0.4578   0.20   0.840
+tensionM     -0.0957     0.2959  -0.32   0.748
+tensionH      0.1145     0.2959   0.39   0.698
+
+Deviance Residuals:
+Min       1Q   Median       3Q      Max
+-3.5011  -0.5709   0.0310   0.5735   1.5365
+
+(Dispersion parameter for poisson family taken to be 1)
+
+Null deviance: 137.10  on 53  degrees of freedom
+Residual deviance: 127.92  on 50  degrees of freedom
+AIC: 552.02
+
+
+
+-------------------------------------
+explanation
+
+Loading and Inspecting Data:
+
+input <- warpbreaks: Loads the warpbreaks dataset into the variable input.
+print(head(input)): Prints the first few rows of the dataset so you can understand its structure.
+Creating the GLM:
+
+output <- glm(formula = breaks ~ wool + tension, data = warpbreaks, family = poisson): This line fits a Generalized Linear Model (GLM) to the data using the Poisson distribution. It models the number of breaks as a function of the categorical predictors wool and tension.
+Displaying the Model Summary:
+
+print(summary(output)): This prints a detailed summary of the fitted model, including coefficients, standard errors, z-values, p-values, and more, which helps you understand the relationships between the predictors and the outcome.
+Optional - Diagnostic Plot:
+
+plot(output): This generates a diagnostic plot to assess the residuals and check for issues like non-linearity, heteroscedasticity, or outliers in the model.
