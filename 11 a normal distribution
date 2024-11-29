@@ -1,0 +1,105 @@
+USING DNORM
+
+
+# Create a sequence of numbers between -10 and 10, incrementing by 0.1
+x <- seq(-10, 10, by = 0.1)
+
+# Choose the mean as 2.5 and standard deviation as 0.5
+y <- dnorm(x, mean = 2.5, sd = 0.5)
+
+# Give the chart file a name
+png(file = "dnorm.png")
+
+# Plot the normal distribution curve
+plot(x, y, type = "l", col = "blue", lwd = 2, 
+     main = "Normal Distribution (mean = 2.5, sd = 0.5)", 
+     xlab = "x", ylab = "Density")
+
+# Save the plot to the file
+dev.off()
+
+
+EXPLANATION
+Sequence Creation:
+
+x <- seq(-10, 10, by = 0.1) generates a sequence of numbers from -10 to 10 with a step size of 0.1. These are the x-values for which we will calculate the corresponding normal distribution values.
+Normal Distribution:
+
+y <- dnorm(x, mean = 2.5, sd = 0.5) computes the values of the normal distribution for each value of x using a mean of 2.5 and a standard deviation of 0.5.
+Saving the Plot:
+
+png(file = "dnorm.png") specifies the file name for saving the plot in PNG format.
+plot(x, y, type = "l", col = "blue", lwd = 2, ...) creates a line plot (type = "l") of the normal distribution with a blue line (col = "blue") and line width 2 (lwd = 2).
+The title and axis labels are also added using the main, xlab, and ylab parameters.
+Saving the File:
+
+dev.off() closes the plotting device and saves the plot as specified.
+
+
+-----------------------------------------------------------------------------------
+
+PNORM 
+Cumulative Normal Distribution using pnorm()
+
+
+# Create a sequence of numbers between -10 and 10, incrementing by 0.2
+x <- seq(-10, 10, by = 0.2)
+
+# Choose the mean as 2.5 and standard deviation as 2
+y <- pnorm(x, mean = 2.5, sd = 2)
+
+# Give the chart file a name
+png(file = "pnorm.png")
+
+# Plot the cumulative normal distribution curve
+plot(x, y, type = "l", col = "blue", lwd = 2, 
+     main = "Cumulative Normal Distribution (mean = 2.5, sd = 2)", 
+     xlab = "x", ylab = "Cumulative Probability")
+
+# Save the plot to the file
+dev.off()
+
+-------------------------------------------------------------------
+
+
+Q NORM
+
+
+Quantile Function (Inverse of the CDF) using qnorm()
+
+# Create a sequence of probability values incrementing by 0.02
+x <- seq(0, 1, by = 0.02)
+
+# Choose the mean as 2 and standard deviation as 1 (note you had sd=3 in the description but used sd=1 here)
+y <- qnorm(x, mean = 2, sd = 1)
+
+# Give the chart file a name
+png(file = "qnorm.png")
+
+# Plot the quantile function (inverse normal distribution curve)
+plot(x, y, type = "l", col = "blue", lwd = 2, 
+     main = "Quantile Function (qnorm) (mean = 2, sd = 1)", 
+     xlab = "Probability", ylab = "Quantiles")
+
+# Save the plot to the file
+dev.off()
+
+---------------------------------------------------------------
+
+ R NORM
+
+ # Create a sample of 50 numbers which are normally distributed
+y <- rnorm(50)
+
+# Give the chart file a name
+png(file = "rnorm.png")
+
+# Plot the histogram for this sample
+hist(y, main = "Normal Distribution", xlab = "Value", ylab = "Frequency", col = "lightblue", border = "black")
+
+# Save the file
+dev.off()
+
+
+
+
