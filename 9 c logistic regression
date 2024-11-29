@@ -1,0 +1,42 @@
+# Load the mtcars dataset
+input <- mtcars
+
+# Check the structure of the dataset
+print(head(input))
+
+# Create a binary outcome variable based on 'mpg' (miles per gallon)
+input$mpg_binary <- ifelse(input$mpg > 20, 1, 0)
+
+# Create the logistic regression model
+logistic_model <- glm(mpg_binary ~ wt + hp, data = input, family = binomial)
+
+# Print the summary of the logistic regression model
+print(summary(logistic_model))
+
+# Predict probabilities using the fitted logistic regression model
+predictions <- predict(logistic_model, type = "response")
+
+# Print the predicted probabilities
+print(predictions)
+
+# Create predicted labels (1 if probability > 0.5, else 0)
+predicted_labels <- ifelse(predictions > 0.5, 1, 0)
+
+# Create a confusion matrix comparing actual vs predicted labels
+confusion_matrix <- table(Actual = input$mpg_binary, Predicted = predicted_labels)
+
+# Print the confusion matrix
+print(confusion_matrix)
+
+# Calculate the accuracy of the model
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+
+# Print the accuracy
+print(paste("Accuracy:", accuracy))
+
+
+op
+Actual
+Predicted  0  1
+0          7  0
+1          3  6
