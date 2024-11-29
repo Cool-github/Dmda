@@ -1,0 +1,24 @@
+# Getting the data points in the form of a vector.
+snowfall <- c(790, 1170.8, 860.1, 1330.6, 630.4, 911.5, 683.5, 996.6, 783.2, 982, 881.8, 1021)
+
+# Converting it into a time series object.
+# Start year is 2013, and frequency is 12 (monthly data).
+snowfall_timeseries <- ts(snowfall, start = c(2013, 1), frequency = 12)
+
+# Printing the time series data
+print(snowfall_timeseries)
+
+# Giving a name to the chart file (this will save the plot as a .png file)
+png(file = "snowfall.png")
+
+# Plotting the time series graph
+plot(snowfall_timeseries, main = "Monthly Snowfall Data", 
+     xlab = "Months", ylab = "Snowfall (mm)", col = "blue", lwd = 2)
+
+# Saving the plot as a .png file
+dev.off()
+
+# If you want to view the plot in RStudio (without saving it), you can just use:
+# plot(snowfall_timeseries)
+
+
