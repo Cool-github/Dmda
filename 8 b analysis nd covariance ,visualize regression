@@ -1,3 +1,26 @@
+ explanatoon
+
+ANOVA (Analysis of Variance)
+Purpose: Displays the first few rows of the selected columns (am, mpg, hp) from the mtcars dataset.
+am: Transmission type (0 = automatic, 1 = manual).
+mpg: Miles per gallon (fuel efficiency).
+hp: Horsepower of the car.
+
+Output: The ANOVA table for the interaction model. The summary provides:
+Degrees of freedom (Df)
+Sum of squares (Sum Sq)
+Mean squares (Mean Sq)
+F-statistic (F value)
+p-value (Pr(>F)) for the significance of each term.
+
+Purpose: The anova() function compares the goodness-of-fit of two or more nested models (e.g., one model with an interaction term and another without)
+Purpose: The aov() function is used to fit a linear model and perform analysis of variance (ANOVA) on the fitted model.
+
+--------------------------
+
+code
+
+
 # Step 1: Load the dataset
 input <- mtcars[, c("am", "mpg", "hp")]
 print("First few rows of the selected data:")
