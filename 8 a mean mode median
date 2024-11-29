@@ -31,4 +31,33 @@ res <- mean(x, na.rm = TRUE)
 # Print the result
 print(res)
 
+----------------------------
 
+MEDIAN
+
+
+x <- c(12, 7, 3, 4.2, 18, 2, 54, -21, 8, -5)
+
+# Calculate the trimmed mean, removing 30% of the smallest and largest values
+res <- median(x) 
+
+# Print the result
+print(res)
+
+
+op
+[1] 5.6
+
+=== Code Execution Successful ===
+
+-----------------------
+
+MODE
+
+getmode<- function(v){
+uniq<- unique(v)
+uniq [which.max(tabulate(match(v,uniq)))]
+}
+v<-c(2,1,2,3,1,2,3,4,1,5,53,2,3)
+res<-getmode(v)
+print(res)  
