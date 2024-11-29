@@ -1,0 +1,38 @@
+# Step 1: Load the dataset
+input <- mtcars[, c("am", "mpg", "hp")]
+print("First few rows of the selected data:")
+print(head(input))
+
+# Step 2: Use the full dataset
+input <- mtcars
+
+# Step 3: Create the first regression model (interaction model)
+result1 <- aov(mpg ~ hp * am, data = input)
+print("Summary of the interaction model (mpg ~ hp * am):")
+print(summary(result1))
+
+# Step 4: Create the second regression model (additive model)
+result2 <- aov(mpg ~ hp + am, data = input)
+print("Summary of the additive model (mpg ~ hp + am):")
+print(summary(result2))
+
+# Step 5: Compare the two models
+print("Comparison of the two models:")
+comparison <- anova(result1, result2)
+print(comparison)
+
+
+
+
+
+op
+
+[1] "First few rows of the selected data:"
+                  am  mpg  hp
+Mazda RX4          1 21.0 110
+Mazda RX4 Wag      1 21.0 110
+Datsun 710         1 22.8  93
+Hornet 4 Drive     0 21.4 110
+Hornet Sportabout  0 18.7 175
+
+=== Execution Halted ===
