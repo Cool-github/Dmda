@@ -1,0 +1,26 @@
+#Creating input data.
+input <- mtcars[,c("mpg","wt","disp","hp")]
+# Creating the relationship model.
+Model <- lm(mpg~wt+disp+hp, data = input)
+# Showing the Model.
+print(Model)
+
+
+op
+
+Call:
+lm(formula = mpg ~ wt + disp + hp, data = input)
+
+Coefficients:
+(Intercept)          wt         disp          hp  
+    37.105       -3.800      -0.020        -0.031   
+
+
+explanation
+
+Purpose: You are selecting a subset of the mtcars dataset. Specifically, you are extracting four columns:
+mpg: Miles per gallon (dependent variable).
+wt: Weight of the car (independent variable).
+disp: Displacement of the car's engine (independent variable).
+hp: Horsepower of the car (independent variable).
+
