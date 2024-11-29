@@ -1,0 +1,16 @@
+
+# Install the randomForest package (if it's not already installed)
+install.packages("randomForest")
+
+# Load the necessary libraries
+library(randomForest)  # For Random Forest
+library(party)         # For additional machine learning functionality (e.g., ctree)
+
+# Print the first few rows of the 'readingSkills' dataset to understand its structure
+print(head(readingSkills))
+
+# Now, we apply Random Forest to the dataset to predict the 'nativeSpeaker' based on 'age', 'shoeSize', and 'score'.
+output.forest <- randomForest(nativeSpeaker ~ age + shoeSize + score, data = readingSkills)
+
+# View the Random Forest output results (model summary)
+print(output.forest)
