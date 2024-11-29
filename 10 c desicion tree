@@ -1,0 +1,37 @@
+# Load the iris dataset
+data("iris")
+
+# Install required packages if not already installed
+# install.packages("caret")
+# install.packages("C50")
+
+# Load the necessary libraries
+library(caret)
+library(C50)
+
+# Set seed for reproducibility
+set.seed(7)
+
+# Data Partition - Split the dataset into training (70%) and testing (30%)
+inTraininglocal <- createDataPartition(iris$Species, p = 0.70, list = FALSE)
+training <- iris[inTraininglocal, ]
+testing <- iris[-inTraininglocal, ]
+
+# Model Building - Train the C5.0 model
+# The formula `Species ~ .` means that 'Species' is the target and all other variables are predictors
+model <- C5.0(Species ~ ., data = training)
+
+# Generate the model summary
+summary(model)
+
+# Predict the test data
+# We use `testing[,-5]` because the Species column is the 5th column in the testing dataset
+pred <- predict(model, testing[,-5])  # Exclude the 'Species' column for prediction
+
+# Calculate the accuracy of the model
+conf_matrix <- table(Predicted = pred, Actual = testing$Species)
+accuracy <- sum(diag(conf_matrix)) / sum(conf_matrix)
+print(paste("Accuracy:", accuracy))
+
+# Visualize the decision tree
+plot(model)
