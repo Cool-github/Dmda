@@ -1,0 +1,19 @@
+# Loading the MASS library
+library("MASS")
+
+# Check the structure of the Cars93 dataset
+print(str(Cars93))
+
+# Creating a data frame with the variables 'AirBags' and 'Type' from Cars93 dataset
+car_data <- data.frame(Cars93$AirBags, Cars93$Type)
+
+# Creating a contingency table with the needed variables: 'AirBags' and 'Type'
+car_data_table <- table(Cars93$AirBags, Cars93$Type)
+
+# Print the contingency table
+print(car_data_table)
+
+# Performing the Chi-Square test to check for independence between AirBags and Type
+print(chisq.test(car_data_table))
+
+
