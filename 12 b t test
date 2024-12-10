@@ -3,3 +3,29 @@ x <- c(0.593, 0.142, 0.329, 0.691, 0.231, 0.793, 0.519, 0.392, 0.418)
 
 # Perform the one-sample t-test to check if the mean of x is greater than 0.3
 t.test(x, alternative="greater", mu=0.3)
+
+
+
+op / 
+	One Sample t-test
+
+data:  x
+t = 3.056, df = 8, p-value = 0.008262
+alternative hypothesis: true mean is greater than 0.3
+95 percent confidence interval:
+ 0.3622872       Inf
+sample estimates:
+mean of x 
+  0.4564444 
+
+
+------------------
+exp
+The code you provided performs a one-sample t-test to determine if the
+mean of the sample data x is significantly greater than the hypothesized mean (0.3).
+Here's an explanation of the components and the output:
+t.test(x, alternative = "greater", mu = 0.3)
+x: The sample data.
+alternative = "greater": Specifies a one-tailed test, testing if the mean of x is greater than mu (the hypothesized mean).
+mu = 0.3: The hypothesized population mean to test against.
+
