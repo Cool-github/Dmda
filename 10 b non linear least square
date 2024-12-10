@@ -14,6 +14,12 @@ lines(xvalues, predict(model), col = "red", lwd = 2)
 
 # Print the model coefficients
 print(coef(model))
+
+# Print the sum of the squared residuals (a measure of model fit)
+print(sum(resid(model)^2))
+
+# Print the confidence intervals of the coefficients (b1 and b2)
+print(confint(model))
 -------------------------------------------------------------------------------------------
 
 # Given x and y values
