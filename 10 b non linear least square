@@ -2,6 +2,24 @@
 xvalues <- c(1.6, 2.1, 2, 2.23, 3.71, 3.25, 3.4, 3.86, 1.19, 2.21)
 yvalues <- c(5.19, 7.43, 6.94, 8.11, 18.75, 14.88, 16.06, 19.12, 3.21, 7.58)
 
+# Plot the data points
+plot(xvalues, yvalues, main = "Non-linear Least Squares Fit", 
+     xlab = "X Values", ylab = "Y Values", col = "blue", pch = 16)
+
+# Fit the Non-linear Least Squares model
+model <- nls(yvalues ~ b1 * xvalues^2 + b2, start = list(b1 = 1, b2 = 3))
+
+# Add the fitted curve
+lines(xvalues, predict(model), col = "red", lwd = 2)
+
+# Print the model coefficients
+print(coef(model))
+-------------------------------------------------------------------------------------------
+
+# Given x and y values
+xvalues <- c(1.6, 2.1, 2, 2.23, 3.71, 3.25, 3.4, 3.86, 1.19, 2.21)
+yvalues <- c(5.19, 7.43, 6.94, 8.11, 18.75, 14.88, 16.06, 19.12, 3.21, 7.58)
+
 # Give the chart file a name and create a PNG file
 png(file = "nls.png")
 
